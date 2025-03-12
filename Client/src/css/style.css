@@ -1,0 +1,280 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background-color: #7e30de;
+    color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(141, 20, 202, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    animation: slideIn 0.5s forwards;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #3bb40f;
+    color: #eee;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity:0;
+    }
+    to {
+        transform: translateY(10);
+        opacity: 1;
+    }
+}
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    animation: loginAnimation 0.5s ease forwards;
+}
+
+#login input ,select{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    animation: inputAnimation 0.5s ease forwards;
+}
+
+#login select,input:focus {
+    border-color: #007bff;
+    outline: none;
+    animation: inputFocus 0.3s ease forwards;
+
+}
+
+#login  select{
+    margin-bottom: 10px;
+}
+
+#login button {
+    align-self: center;
+    padding: 0.5rem 1.5rem;
+    background-color: #0069d9;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: buttonAnimation 0.5s ease forwards;
+}
+
+#login button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#login button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+
+
+
+
+#register {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    animation: loginAnimation 0.5s ease forwards;
+}
+
+#register input ,select{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 16px;
+    margin: auto;
+    transition: border-color 0.3s ease;
+    animation: inputAnimation 0.5s ease forwards;
+}
+
+#register select,input:focus {
+    border-color: #007bff;
+    outline: none;
+    animation: inputFocus 0.3s ease forwards;
+
+}
+
+#register  select{
+    margin-bottom: 10px;
+}
+
+#register button {
+    align-self: center;
+    padding: 0.5rem 1.5rem;
+    background-color: #0069d9;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: buttonAnimation 0.5s ease forwards;
+}
+
+#register button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#register button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+
+
+@keyframes loginAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes inputAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes inputFocus {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes buttonAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+#head{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0 10px rgba(235, 229, 229, 0.2);
+    margin-bottom: 1.5rem;
+    color: #333;
+    background-color: #f6f6f6;
+    font-family: 'Lato', sans-serif,cursive;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+#dashboard{
+    display: flex;
+}
+
+#sidebar {
+    background-color: rgb(32, 32, 32);
+    height: calc(100vh - 60px);
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    animation: sidebarAnimation 0.5s ease forwards;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}
+
+@keyframes sidebarAnimation {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+#outlet{
+    margin: 20px;
+}
+
+
+#hero{
+img{
+    margin-top: -50px;
+    height: 90%;
+    width: 100%;
+}
+}
