@@ -7,7 +7,11 @@ import Home from "./Pages/Home"
 import Dashboard from "./Pages/Dashboard/Dashboard"
 import DHome from "./Pages/Dashboard/DHome"
 import Transcation from "./Pages/Dashboard/Transcation"
-import History from "./Pages/Dashboard/History"
+import Withdraw from "./Pages/Dashboard/withdraw"
+import Deposite from "./Pages/Dashboard/Deposite"
+import Reset from "./Pages/Dashboard/Reset"
+import Balance from "./Pages/Dashboard/History"
+import Profile from "./Pages/Dashboard/Profile"
 
 const App=()=>{
   return(
@@ -23,11 +27,16 @@ const App=()=>{
     </Routes>
 
 <Routes>
-<Route path="dashboard" element={<Dashboard/>}>
+<Route path="/dashboard" element={<Dashboard/>}>
 <Route index element={<DHome/>}/>
 <Route path='home' element={<DHome/>}/>
 <Route path='transaction' element={<Transcation/>}/>
-<Route path='history' element={<History/>}/>
+<Route path='balance' element={<Balance/>}/>
+<Route path='withdraw' element={<Withdraw/>}/>
+<Route path='deposite' element={<Deposite/>}/>
+<Route path='resetpass' element={<Reset/>}/>
+<Route path='profile' element={<Profile/>}/>
+
 </Route>
 
 </Routes>

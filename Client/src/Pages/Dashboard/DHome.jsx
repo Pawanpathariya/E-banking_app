@@ -1,7 +1,7 @@
 const DHome=()=>{
     return(
   <>
-  Homeee
+<h1>Home</h1>
   </>
     )
 }

@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom"
 import img1 from "../images/logo.webp"  
+import { Navbar, Nav } from 'react-bootstrap';
 const Topbar = () => {
 return(
-<>
-<nav style={{display:'flex',alignItems:'center'}}>
-        <h3 style={{marginRight:'10px'}}>CBI Bank  <img src={img1} height={60} width={100} style={{borderRadius:'50%'}}/></h3>
-        <Link to="home">Home</Link> 
-        <Link to="login">Login</Link>
-        <Link to="register">Registration</Link>
-</nav>
-</>
+<Navbar style={{backgroundColor:'#7e30de'}} variant="dark">
+    <Navbar.Brand as={Link} to="home">
+        <img
+            src={img1}
+            height={60}
+            width={100}
+            className="d-inline-block align-top"
+            style={{borderRadius:'50%'}}
+            alt="CBI Bank Logo"
+        />
+    </Navbar.Brand>
+    <Nav className="mr-auto" >
+        <Nav.Link as={Link} to="login">Login</Nav.Link>
+        <Nav.Link as={Link} to="register">Registration</Nav.Link>
+    </Nav>
+</Navbar>
 )
 }
-
 export default Topbar
 

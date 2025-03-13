@@ -1,10 +1,10 @@
-const History=()=>{
+const Balance=()=>{
     return(
   <>
-  History
+ <h1>Balance Inquiry</h1>
   </>
     )
 }
 
 
-export default History;
+export default Balance;

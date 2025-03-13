@@ -119,14 +119,47 @@ nav a:hover {
 }
 
 #register input ,select{
-    width: 100%;
+    width: 400px;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     font-size: 16px;
     margin: auto;
+    margin-bottom: 20px;
     transition: border-color 0.3s ease;
-    animation: inputAnimation 0.5s ease forwards;
+    animation: inputAnimation 0.5s ease forwards,
+    inputAnimation2 0.7s ease forwards,
+    inputAnimation3 0.9s ease forwards;
+}
+
+
+@keyframes inputAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes inputAnimation2 {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes inputAnimation3 {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 #register select,input:focus {
@@ -161,7 +194,6 @@ nav a:hover {
     background-color: #004494;
     transform: translateY(0);
 }
-
 
 
 @keyframes loginAnimation {
@@ -277,4 +309,39 @@ img{
     height: 90%;
     width: 100%;
 }
+}
+
+
+#reset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(32, 32, 32);
+    color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    margin-left: 70%;
+    animation: loginAnimation 0.5s ease forwards;
+}
+#reset input ,select{
+    width: 400px;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 16px;
+    margin: auto;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+    animation: inputAnimation 0.5s ease forwards,
+    inputAnimation2 0.7s ease forwards,
+    inputAnimation3 0.9s ease forwards;
+
+    
 }

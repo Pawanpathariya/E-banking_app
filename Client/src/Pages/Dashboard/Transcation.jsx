@@ -2,7 +2,7 @@
 const Transcation=()=>{
     return(
   <>
-  Homeee  Tra
+  <h1>Transaction</h1>
   </>
     )
 }

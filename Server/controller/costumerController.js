@@ -79,7 +79,6 @@ const Customerlogin=async(req,res)=>{
 const userAuthenticate=async(req, res)=>{
   const token = req.header("x-auth-token");
   const verify= await jwt.verify(token, process.env.SECRETE_KEY);
-
   const User= await custoModel.findById(verify.id).select("-password");
   res.send(User);
 
