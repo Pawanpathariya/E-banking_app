@@ -19,7 +19,6 @@ const UserAuth=async()=>{
         let api=`${BASE_URL}/customer/userauthenticate`;
         try {
             const response = await axios.post(api, null, { headers: { "x-auth-token": token } });
-            console.log(response.data);
             localStorage.setItem("name", response.data.name);
             localStorage.setItem("email", response.data.email);
             localStorage.setItem("id", response.data._id);

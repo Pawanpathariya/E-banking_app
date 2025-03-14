@@ -10,7 +10,7 @@ const Sidebar = () => {
                 <Link to="withdraw"><h5>Withdraw</h5></Link>
                 <Link to="deposite "><h5>Deposite</h5></Link>
                 <Link to="profile "><h5>Profile</h5></Link>
-                <Link to="resetpass"><h5>Reset Password</h5></Link>
+                <Link to="resetpass"><h5>Change Password</h5></Link>
           
         </>
     );

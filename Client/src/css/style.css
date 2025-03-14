@@ -261,7 +261,7 @@ nav a:hover {
 
 #sidebar {
     background-color: rgb(32, 32, 32);
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
     width: 300px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -271,7 +271,6 @@ nav a:hover {
     justify-content: space-evenly;
     animation: sidebarAnimation 0.5s ease forwards;
     text-align: center;
-
     a {
         text-decoration: none;
         color: #fff;
@@ -345,3 +344,58 @@ img{
 
     
 }
+
+
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    margin-left: 55%;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+#profile h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+#profile p {
+    margin-bottom: 0.5rem;
+    color: #666;
+    animation: slideIn 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+

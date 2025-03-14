@@ -1,7 +1,4 @@
-
-
 const mongoose=require("mongoose")
-
 const costumerSchema=new mongoose.Schema({
     name:{type:String,required:true},
     address:{type:String,required:true},
@@ -12,7 +9,6 @@ const costumerSchema=new mongoose.Schema({
     accountType:{type:String,required:true},
     password:{type:String,required:true},
     createdAt: { type: Date, default: Date.now},
-
+    accountID:{type:mongoose.Schema.Types.ObjectId,ref:"account"}
 })
-
 module.exports=mongoose.model("costumer",costumerSchema)
