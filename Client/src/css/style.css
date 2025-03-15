@@ -399,3 +399,196 @@ img{
     }
 }
 
+.balance-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    margin-left: 55%;
+    animation: fadeIn 1s ease-in-out forwards;
+
+    h4 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        animation: slideIn 1s ease-in-out forwards;
+    }
+}
+
+
+#deposite{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    margin-left: 55%;
+    animation: fadeIn 1s ease-in-out forwards;
+
+    h4 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        animation: slideIn 1s ease-in-out forwards;
+    }
+
+    input {
+        width: 400px;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 16px;
+        margin: auto;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease;
+        animation: inputAnimation 0.5s ease forwards,
+        inputAnimation2 0.7s ease forwards,
+        inputAnimation3 0.9s ease forwards;
+    }
+
+    button {
+        align-self: center;
+        padding: 0.5rem 1.5rem;
+        background-color: #0069d9;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: buttonAnimation 0.5s ease forwards;
+
+        &:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+#Withdraw{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 450px;
+    margin: 2rem auto;
+    margin-left: 55%;
+    animation: fadeIn 1s ease-in-out forwards;
+
+    h4 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        animation: slideIn 1s ease-in-out forwards;
+    }
+
+    input {
+        width: 400px;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 16px;
+        margin: auto;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease;
+        animation: inputAnimation 0.5s ease forwards,
+        inputAnimation2 0.7s ease forwards,
+        inputAnimation3 0.9s ease forwards;
+    }
+
+    button {
+        align-self: center;
+        padding: 0.5rem 1.5rem;
+        background-color: #0069d9;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: buttonAnimation 0.5s ease forwards;
+
+        &:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+
+#transcation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #f6f6f6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 800px;
+    margin: 2rem auto;
+    margin-left: 20%;
+    animation: fadeIn 1s ease-in-out forwards;
+
+    h4 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        animation: slideIn 1s ease-in-out forwards;
+    }
+
+    input {
+        width: 400px;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 16px;
+        margin: auto;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease;
+        animation: inputAnimation 0.5s ease forwards,
+        inputAnimation2 0.7s ease forwards,
+        inputAnimation3 0.9s ease forwards;
+    }
+
+    button {
+        align-self: center;
+        padding: 0.5rem 1.5rem;
+        background-color: #0069d9;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: buttonAnimation 0.5s ease forwards;
+
+        &:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    }   
+}
+
+

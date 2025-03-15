@@ -47,6 +47,9 @@ useEffect(()=>{
  Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
  <button onClick={handleSubmit}>Submit</button>
  If You Don't Have account <Link to="/register">Click Here!</Link>
+
+<br />
+<p> Forgot Password <Link to="/forgot">Click Here!</Link></p>
  </div>
 
 <ToastContainer/>

@@ -126,4 +126,112 @@ try {
 
 }
 
-module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile}
+const balance=async(req,res)=>{
+  try {
+    const {id}=req.body;
+    const user=await custoModel.findById(id).populate("accountID");
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(500).send("Something went wrong")
+  }
+  
+  }
+
+
+  const deposite=async(req,res)=>{
+    try {
+      const {amount,id}=req.body;
+    const acc=await accountModel.findOne({coustoID:id});
+    const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Deposite"});
+    const newBalance=Number(acc.balance)+Number(amount);
+    await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
+    res.send("Deposite");
+    }
+    catch (error) {
+      res.status(500).send("Something went wrong")
+    }
+    
+    }
+  const withdraw=async(req,res)=>{
+    try {
+      const {amount,id}=req.body;
+    const acc=await accountModel.findOne({coustoID:id});
+    const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Withdraw"});
+    const newBalance=Number(acc.balance)-Number(amount);
+    await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
+    res.send("withdraw");
+    }
+    catch (error) {
+      res.status(500).send("Something went wrong")
+    }
+    
+    }
+
+
+    const transaction=async(req,res)=>{
+      try {
+        const {id}=req.body;
+        const user=await accountModel.findOne({coustoID:id}).populate("transactionID");
+        res.status(200).send(user);
+      } catch (error) {
+        res.status(500).send("Something went wrong")
+      }  
+      }
+    const Statement=async(req,res)=>{
+      try {
+        const {id, start, end} = req.body;
+        const user = await accountModel.findOne({coustoID: id}).populate({
+          path: "transactionID",
+          match: {
+            createdAt: { $gte: new Date(start), $lte: new Date(end).setHours(23, 59, 59, 999) }
+          }
+        });
+        res.status(200).send(user);
+      } catch (error) {
+        res.status(500).send("Something went wrong")
+      }  
+    }
+
+const forgotpassword=async(req,res)=>{
+  try {
+    const {email}=req.body;
+    const User=await custoModel.findOne({email:email});
+    if(!User)
+    {
+      return res.status(400).send("Invalid Email");
+    }
+    const password=passGen.GenPass();
+    const salt = await bcrypt.genSalt(10);
+    const newp = await bcrypt.hash(password, salt);
+    await custoModel.findByIdAndUpdate(User._id,{password:newp});
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'pawanpathariys@gmail.com',
+        pass: 'qsfu fszj qtym hhtc'
+      }
+    });
+    
+    var mailOptions = {
+      from: 'pawanpathariys@gmail.com',
+      to: email,
+      subject: 'Your secret Password', 
+      text: `Welcome to CBI Bank ${User.name}\nYour new password is ${password} `
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+    res.status(200).send(password);
+  }
+});
+  }
+  catch (error) {
+    res.status(500).send("Something went wrong")
+  }
+}
+
+module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile,balance,deposite,withdraw,transaction,Statement,forgotpassword}
