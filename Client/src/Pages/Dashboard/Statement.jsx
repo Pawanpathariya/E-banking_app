@@ -40,7 +40,7 @@ const Statement = () => {
   return (
     <>
       <div id="transcation">
-        <h1>Transaction History</h1>
+        <h1>Statement</h1>
         <div style={{ display: "flex", gap: "1rem" }}>
           <input
             type="date"

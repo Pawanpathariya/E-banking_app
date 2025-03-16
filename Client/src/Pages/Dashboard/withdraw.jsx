@@ -20,7 +20,7 @@ const Withdraw=()=>{
             },2000);
         }
         catch (error) {
-            toast.error(error.response.data);
+           toast.error(error.response.data);
         }
     }
 

@@ -141,6 +141,10 @@ const balance=async(req,res)=>{
   const deposite=async(req,res)=>{
     try {
       const {amount,id}=req.body;
+      if(amount<=0)
+      {
+        return res.status(400).send("Invalid Amount");
+      }
     const acc=await accountModel.findOne({coustoID:id});
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Deposite"});
     const newBalance=Number(acc.balance)+Number(amount);
@@ -156,6 +160,9 @@ const balance=async(req,res)=>{
     try {
       const {amount,id}=req.body;
     const acc=await accountModel.findOne({coustoID:id});
+    if(acc.balance-amount<0){
+      return res.status(400).send("Insufficient Balance");
+    }
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Withdraw"});
     const newBalance=Number(acc.balance)-Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
