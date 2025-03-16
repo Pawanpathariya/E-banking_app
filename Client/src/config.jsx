@@ -1,2 +1,2 @@
-const BASE_URL="https://e-banking-app-y79p.onrender.com";
+const BASE_URL="https://e-banking-app-yxua.onrender.com";
 export default BASE_URL;
