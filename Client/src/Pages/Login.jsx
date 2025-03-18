@@ -46,10 +46,10 @@ useEffect(()=>{
  Enter Email Id:<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)}/><br/>
  Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
  <button onClick={handleSubmit}>Submit</button>
- If You Don't Have account <Link to="/register">Click Here!</Link>
+<p> If You Don't Have account <Link to="/register">Click Here!</Link> </p>
 
 <br />
-<p> Forgot Password <Link to="/forgot">Click Here!</Link></p>
+<p> <Link to="/forgot">Forgot Password</Link></p>
  </div>
 
 <ToastContainer/>
