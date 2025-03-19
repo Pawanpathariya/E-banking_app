@@ -15,6 +15,7 @@ const Deposite=()=>{
         try {
             const response = await axios.post(api, {amount,id:localStorage.getItem("id")});
             toast.success(response.data);
+            setAmount(0);
             setTimeout(() => {
                 navigate("/dashboard/balance")
             },2000);
