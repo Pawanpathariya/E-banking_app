@@ -7,7 +7,7 @@ const jwt=require('jsonwebtoken')
 require('dotenv').config();
 const bcrypt=require('bcryptjs');
 
-
+//Customer Registration
 const CustomerRegi=async(req,res)=>{
 
     try {
@@ -58,6 +58,8 @@ const CustomerRegi=async(req,res)=>{
   
 }
 
+
+//Customer Login
 const Customerlogin=async(req,res)=>{
 
     try {
@@ -84,6 +86,9 @@ const Customerlogin=async(req,res)=>{
     
 }
 
+
+
+//User Authentication
 const userAuthenticate=async(req, res)=>{
   const token = req.header("x-auth-token");
   const verify= await jwt.verify(token, process.env.SECRETE_KEY);
@@ -92,6 +97,9 @@ const userAuthenticate=async(req, res)=>{
 
 }
 
+
+
+//Reset Password
 const resetPassword=async(req,res)=>{
 try {
   const {oldPassword,newPassword,id}=req.body;
@@ -115,6 +123,8 @@ res.send("Reset Password");
 }
 
 
+
+//Profile
 const profile=async(req,res)=>{
 try {
   const {id}=req.body;
@@ -126,6 +136,9 @@ try {
 
 }
 
+
+
+//Balance
 const balance=async(req,res)=>{
   try {
     const {id}=req.body;
@@ -138,6 +151,8 @@ const balance=async(req,res)=>{
   }
 
 
+
+  //Deposite
   const deposite=async(req,res)=>{
     try {
       const {amount,id}=req.body;
@@ -156,6 +171,12 @@ const balance=async(req,res)=>{
     }
     
     }
+
+
+
+
+
+    //Withdraw
   const withdraw=async(req,res)=>{
     try {
       const {amount,id}=req.body;
@@ -175,6 +196,9 @@ const balance=async(req,res)=>{
     }
 
 
+
+
+    //All Transaction history
     const transaction=async(req,res)=>{
       try {
         const {id}=req.body;
@@ -184,6 +208,10 @@ const balance=async(req,res)=>{
         res.status(500).send("Something went wrong")
       }  
       }
+
+
+
+      //Statement between two dates
     const Statement=async(req,res)=>{
       try {
         const {id, start, end} = req.body;
@@ -199,6 +227,8 @@ const balance=async(req,res)=>{
       }  
     }
 
+
+    //Forgot Password
 const forgotpassword=async(req,res)=>{
   try {
     const {email}=req.body;
