@@ -199,15 +199,18 @@ const balance=async(req,res)=>{
 
 
     //All Transaction history
-    const transaction=async(req,res)=>{
+    const transaction = async (req, res) => {
       try {
-        const {id}=req.body;
-        const user=await accountModel.findOne({coustoID:id}).populate("transactionID");
+        const { id } = req.body;
+        const user = await accountModel.findOne({ coustoID: id }).populate({
+          path: "transactionID",
+          options: { sort: { createdAt: -1 }, limit: 7 }
+        });
         res.status(200).send(user);
       } catch (error) {
         res.status(500).send("Something went wrong")
-      }  
       }
+    }
 
 
 
