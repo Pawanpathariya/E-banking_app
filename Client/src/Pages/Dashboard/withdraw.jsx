@@ -12,8 +12,9 @@ const Withdraw=()=>{
     const navigate=useNavigate();
 
     const handleSubmit=async(e)=>{
-        e.preventDefault();
+        e.preventDefault()
         let api=`${BASE_URL}/customer/withdraw`;
+        document.getElementById("loading").style.display="block";
         try {
             const response = await axios.post(api, {amount,id:localStorage.getItem("id")});
             toast.success(response.data);
@@ -21,6 +22,7 @@ const Withdraw=()=>{
             setbtns(false);
             setTimeout(() => {
                setbtns(true);
+               document.getElementById("loading").style.display="none";
             },3000);
         }
         catch (error) {
@@ -42,7 +44,7 @@ const Withdraw=()=>{
         </form>
         </div>
 
-      <div id="loading">
+      <div id="loading" style={{display:"none"}}>
       {btns ? "" : <img src={money}/> }
       {btns ? "" :  <audio autoPlay>
           <source src={audio} type="audio/mp3"/>

@@ -259,6 +259,9 @@ nav a:hover {
 }
 
 #sidebar {
+    position: sticky;
+    top: 75px;
+    left: 0;
     background-color: rgb(32, 32, 32);
     height: calc(100vh - 80px);
     width: 300px;

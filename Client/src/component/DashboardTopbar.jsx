@@ -6,7 +6,7 @@ const DashboardTopbar = () => {
     const navigate=useNavigate()
     const username = localStorage.getItem('username');
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" style={{position:"sticky",top:"0",zIndex:"1"}}>
             <Navbar.Brand as={Link} to="/dashboard">Dashboard</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
