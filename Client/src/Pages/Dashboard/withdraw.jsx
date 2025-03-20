@@ -4,9 +4,11 @@ import axios from "axios";
 import BASE_URL from "../../config";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from 'react-toastify';
-
+import money from '../../images/money.gif'
+import audio from '../../audio/countingSound.mp3'
 const Withdraw=()=>{
     const [amount, setAmount] = useState(0);
+    const [btns,setbtns]=useState(true);
     const navigate=useNavigate();
 
     const handleSubmit=async(e)=>{
@@ -16,9 +18,10 @@ const Withdraw=()=>{
             const response = await axios.post(api, {amount,id:localStorage.getItem("id")});
             toast.success(response.data);
             setAmount(0);
+            setbtns(false);
             setTimeout(() => {
-                navigate("/dashboard/balance")
-            },2000);
+               setbtns(true);
+            },3000);
         }
         catch (error) {
            toast.error(error.response.data);
@@ -37,9 +40,15 @@ const Withdraw=()=>{
             <br/>
             <button onClick={handleSubmit} >Withdraw</button>
         </form>
-
-
         </div>
+
+      <div id="loading">
+      {btns ? "" : <img src={money}/> }
+      {btns ? "" :  <audio autoPlay>
+          <source src={audio} type="audio/mp3"/>
+        </audio> }
+
+      </div>
         <ToastContainer/>
 
         </>
