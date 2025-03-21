@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import BASE_URL from "../../config";
 import { Table } from "react-bootstrap";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Statement = () => {
   const [transactions, setTransactions] = useState([]);
@@ -14,6 +16,8 @@ const Statement = () => {
   };
 
   const handleEndDateChange = (e) => {
+ if(startDate>e.target.value){
+  toast.error("Start date must be less than end date")}
     setEndDate(e.target.value);
   };
 
@@ -86,6 +90,8 @@ const Statement = () => {
           </tbody>
         </Table>
       </div>
+
+      <ToastContainer />
     </>
   );
 };

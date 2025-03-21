@@ -23,6 +23,7 @@ const ForgotPass = () => {
 
     return (
         <>
+        <div id='register'>
             <h1>Forgot Password</h1>
             <form>
                 <label>Email:</label>
@@ -30,6 +31,7 @@ const ForgotPass = () => {
                 <br />
                 <button onClick={handleSubmit}>Submit</button>
             </form>
+            </div>
             <ToastContainer />
         </>
     )
