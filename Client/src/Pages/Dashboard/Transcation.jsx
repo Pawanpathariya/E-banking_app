@@ -25,7 +25,7 @@ const Transcation = () => {
   return (
     <>
     <div id="transcation">
-      <h1>Transaction History</h1>
+      <h1>Mini Statement</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
