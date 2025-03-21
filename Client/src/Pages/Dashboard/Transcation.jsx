@@ -43,7 +43,7 @@ const Transcation = () => {
               <td>{transaction._id}</td>
               <td>{transaction.transactionType}</td>
               <td>{transaction.amount}</td>
-              <td>{new Date(transaction.createdAt).toLocaleDateString()}</td>
+              <td>{new Date(transaction.createdAt).toDateString()}</td>
             </tr>
           ))}
           <tr>
