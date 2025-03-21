@@ -223,7 +223,7 @@ const balance=async(req,res)=>{
           match: {
             createdAt: { $gte: new Date(start), $lte: new Date(end).setHours(23, 59, 59, 999) }
           }
-        }).sort({ createdAt: -1 });
+        })
         res.status(200).send(user);
       } catch (error) {
         res.status(500).send("Something went wrong")
