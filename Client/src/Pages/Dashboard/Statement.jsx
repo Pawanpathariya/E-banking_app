@@ -60,8 +60,8 @@ const Statement = () => {
             <tr>
               <th>#</th>
               <th>Transaction ID</th>
-              <th>Transaction Type</th>
-              <th>Amount</th>
+              <th>Deposite</th>
+              <th>Withdraw</th>
               <th>Date</th>
             </tr>
           </thead>
@@ -70,11 +70,14 @@ const Statement = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{transaction._id}</td>
-                <td>{transaction.transactionType}</td>
-                <td>{transaction.amount}</td>
-                <td>{new Date(transaction.createdAt).toLocaleDateString()}</td>
+                <td>{transaction.transactionType==="Deposite"?transaction.amount:"-"}</td>
+                <td>{transaction.transactionType==="Withdraw"?transaction.amount:"-"}</td>
+                <td>{new Date(transaction.createdAt).toDateString()}</td>
               </tr>
             ))}
+           <tr>
+            <td colSpan={5}></td>
+          </tr>
             <tr>
               <td colSpan="2"></td>
               <td>Available Balance:</td>
