@@ -164,33 +164,6 @@ const balance=async(req,res)=>{
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Deposite"});
     const newBalance=Number(acc.balance)+Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
-
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'pawanpathariys@gmail.com',
-        pass: 'qsfu fszj qtym hhtc'
-      }
-    });
-    
-    var mailOptions = {
-      from: 'pawanpathariys@gmail.com',
-      to: email,
-      subject: 'Thank you for deposite', 
-      text: `Thank you for making transaction Your Account number is ${acc.accountNumber}\nHas deposite successfully\nYour deposite amount is ${amount}
-      \nYour total balance is ${newBalance}`
-    };
-    
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
-
-
-
     res.send("Deposite");
     }
     catch (error) {
@@ -198,9 +171,6 @@ const balance=async(req,res)=>{
     }
     
     }
-
-
-
 
 
     //Withdraw
@@ -211,35 +181,10 @@ const balance=async(req,res)=>{
     if(acc.balance-amount<0){
       return res.status(400).send("Insufficient Balance");
     }
+
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Withdraw"});
     const newBalance=Number(acc.balance)-Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
-
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'pawanpathariys@gmail.com',
-        pass: 'qsfu fszj qtym hhtc'
-      }
-    });
-    
-    var mailOptions = {
-      from: 'pawanpathariys@gmail.com',
-      to: email,
-      subject: 'Thank you for Withdraw', 
-      text: `Thank you for making transaction Your Account number is ${acc.accountNumber}\nHas Withdraw successfully\nYour Withdraw amount is ${amount}
-      \nYour total balance is ${newBalance}`
-    };
-    
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
-
-
     res.send("withdraw");
     }
     catch (error) {
@@ -282,7 +227,6 @@ const balance=async(req,res)=>{
         res.status(500).send("Something went wrong")
       }  
     }
-
 
     //Forgot Password
 const forgotpassword=async(req,res)=>{
@@ -328,3 +272,4 @@ const forgotpassword=async(req,res)=>{
 }
 
 module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile,balance,deposite,withdraw,transaction,Statement,forgotpassword}
+
