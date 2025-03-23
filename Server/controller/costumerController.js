@@ -166,8 +166,6 @@ const balance=async(req,res)=>{
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
     const User=await custoModel.findById(id);
     const email=User.email
-    console.log(email);
-
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -179,8 +177,14 @@ const balance=async(req,res)=>{
     var mailOptions = {
       from: 'pawanpathariys@gmail.com',
       to: email,
-      subject: 'Thankyou for making Transaction', 
-      text: `Welcome to CBI Bank  `
+      subject: 'Transaction Successful', 
+      text: `Thank you for making Transaction ${User.name} from CBI Bank\n
+      Transaction Type: Deposite\n
+      Transaction ID: ${Tran._id}\n
+      Account Number: ${acc.accountNumber}\n
+      Date: ${Tran.createdAt}\n
+      Amount: ${amount}\n
+      Balance: ${newBalance}`
     };
     
     transporter.sendMail(mailOptions, function(error, info){
@@ -220,7 +224,6 @@ const balance=async(req,res)=>{
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
     const User=await custoModel.findById(id);
     const email=User.email
-    console.log(email);
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -232,8 +235,14 @@ const balance=async(req,res)=>{
     var mailOptions = {
       from: 'pawanpathariys@gmail.com',
       to: email,
-      subject: 'Thankyou for making Transaction', 
-      text: `Welcome to CBI Bank  `
+      subject: 'Transaction Successful', 
+      text: `Thank you for making Transaction ${User.name} from CBI Bank\n
+      Transaction Type: Withdraw\n
+      Transaction ID: ${Tran._id}\n
+      Account Number: ${acc.accountNumber}\n
+      Date: ${Tran.createdAt}\n
+      Amount: ${amount}\n
+      Balance: ${newBalance}`
     };
     
     transporter.sendMail(mailOptions, function(error, info){
