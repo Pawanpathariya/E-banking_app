@@ -12,6 +12,7 @@ const Registration = () => {
     const [mobile, setMobile] = useState("");
     const [pincode, setPincode] = useState("");
     const [accountType, setAccountType] = useState("");
+    const [fathername, setFathername] = useState("");
     const navigate=useNavigate();
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -71,6 +72,17 @@ const Registration = () => {
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <br />
+                    <label>
+                       Father Name:
+                        <input
+                            type="text"
+                            name="fathername"
+                            value={fathername}
+                            onChange={(e) => setFathername(e.target.value)}
                             required
                         />
                     </label>

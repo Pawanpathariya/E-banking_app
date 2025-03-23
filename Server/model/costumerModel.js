@@ -1,6 +1,7 @@
 const mongoose=require("mongoose")
 const costumerSchema=new mongoose.Schema({
     name:{type:String,required:true},
+    fathername:{type:String,required:true},
     address:{type:String,required:true},
     email:{type:String,required:true,unique:true},
     city:{type:String,required:true},
