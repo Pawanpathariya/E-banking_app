@@ -177,7 +177,7 @@ const balance=async(req,res)=>{
       from: 'pawanpathariys@gmail.com',
       to: email,
       subject: 'Thank you for deposite', 
-      text: `Welcome to CBI Bank ${name}\nYour Account number is ${accountNumber}\nHas deposite successfully\nYour deposite amount is ${amount}
+      text: `Thank you for making transaction Your Account number is ${accountNumber}\nHas deposite successfully\nYour deposite amount is ${amount}
       \nYour total balance is ${newBalance}`
     };
     
@@ -227,7 +227,7 @@ const balance=async(req,res)=>{
       from: 'pawanpathariys@gmail.com',
       to: email,
       subject: 'Thank you for Withdraw', 
-      text: `Welcome to CBI Bank ${name}\nYour Account number is ${accountNumber}\nHas Withdraw successfully\nYour Withdraw amount is ${amount}
+      text: `Thank you for making transaction Your Account number is ${accountNumber}\nHas Withdraw successfully\nYour Withdraw amount is ${amount}
       \nYour total balance is ${newBalance}`
     };
     
