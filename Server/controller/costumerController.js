@@ -165,6 +165,9 @@ const balance=async(req,res)=>{
     const newBalance=Number(acc.balance)+Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
     const User=await custoModel.findById(id);
+    const email=User.email
+    console.log(email);
+
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -175,7 +178,7 @@ const balance=async(req,res)=>{
     
     var mailOptions = {
       from: 'pawanpathariys@gmail.com',
-      to: User.email,
+      to: email,
       subject: 'Thankyou for making Transaction', 
       text: `Welcome to CBI Bank  `
     };
@@ -216,9 +219,8 @@ const balance=async(req,res)=>{
     const newBalance=Number(acc.balance)-Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
     const User=await custoModel.findById(id);
-
-
-
+    const email=User.email
+    console.log(email);
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -229,7 +231,7 @@ const balance=async(req,res)=>{
     
     var mailOptions = {
       from: 'pawanpathariys@gmail.com',
-      to: User.email,
+      to: email,
       subject: 'Thankyou for making Transaction', 
       text: `Welcome to CBI Bank  `
     };
