@@ -34,7 +34,7 @@ const Withdraw=()=>{
         <>
 
         <div id="Withdraw">
-        <h1>Withdraw</h1>
+        <h1  className="heading">Withdraw</h1>
 
         <form >
             <label>Amount:</label>

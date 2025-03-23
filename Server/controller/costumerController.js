@@ -164,6 +164,33 @@ const balance=async(req,res)=>{
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Deposite"});
     const newBalance=Number(acc.balance)+Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'pawanpathariys@gmail.com',
+        pass: 'qsfu fszj qtym hhtc'
+      }
+    });
+    
+    var mailOptions = {
+      from: 'pawanpathariys@gmail.com',
+      to: email,
+      subject: 'Thank you for deposite', 
+      text: `Welcome to CBI Bank ${name}\nYour Account number is ${accountNumber}\nHas deposite successfully\nYour deposite amount is ${amount}
+      \nYour total balance is ${newBalance}`
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
+
     res.send("Deposite");
     }
     catch (error) {
@@ -187,6 +214,32 @@ const balance=async(req,res)=>{
     const Tran=await transactionModel.create({accountID:acc._id,amount:amount,transactionType:"Withdraw"});
     const newBalance=Number(acc.balance)-Number(amount);
     await accountModel.findByIdAndUpdate(acc._id,{$set:{balance:newBalance},$push:{transactionID:Tran._id}});
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'pawanpathariys@gmail.com',
+        pass: 'qsfu fszj qtym hhtc'
+      }
+    });
+    
+    var mailOptions = {
+      from: 'pawanpathariys@gmail.com',
+      to: email,
+      subject: 'Thank you for Withdraw', 
+      text: `Welcome to CBI Bank ${name}\nYour Account number is ${accountNumber}\nHas Withdraw successfully\nYour Withdraw amount is ${amount}
+      \nYour total balance is ${newBalance}`
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
     res.send("withdraw");
     }
     catch (error) {

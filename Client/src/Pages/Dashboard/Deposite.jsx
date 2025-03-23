@@ -29,7 +29,7 @@ const Deposite=()=>{
         <>
 
         <div id="deposite">
-        <h1>Deposite</h1>
+        <h1 className="heading">Deposite</h1>
 
         <form >
             <label>Amount:</label>

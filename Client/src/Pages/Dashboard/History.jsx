@@ -20,7 +20,7 @@ useEffect(()=>{
 },[])
     return(
   <div className="balance-display">
-    <h1>Balance Inquiry</h1>
+    <h1 className="heading" >Balance Inquiry</h1>
     <h2>Account Balance: {bal}</h2>
   </div>
     )

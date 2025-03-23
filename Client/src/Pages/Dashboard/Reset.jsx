@@ -20,7 +20,7 @@ const Reset=()=>{
     return(
         <>
         <div id="reset">
-        <h1>Change Password</h1>
+        <h1 className="heading" >Change Password</h1>
         <form >
             <label>Old Password:</label><br/>
             <input type="password" value={oldPassword} onChange={(e)=>setOldPassword(e.target.value)}/><br/>
