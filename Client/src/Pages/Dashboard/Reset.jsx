@@ -6,8 +6,13 @@ import { ToastContainer, toast } from 'react-toastify';
 const Reset=()=>{
     const [oldPassword,setOldPassword]=useState("");
     const [newPassword,setNewPassword]=useState("");
+    const [renewPassword,setreNewPassword]=useState("");
     const handleSubmit=async(e)=>{
         e.preventDefault();
+ if(newPassword!=renewPassword){
+toast.error("New Password does not match"); 
+}
+else{
     let api=`${BASE_URL}/customer/resetpassword`;
     try {
         const response = await axios.post(api, { oldPassword,newPassword,id:localStorage.getItem("id") });
@@ -17,6 +22,7 @@ const Reset=()=>{
         toast.error(error.response.data);
     }
     }
+}
     return(
         <>
         <div id="reset">
@@ -26,6 +32,8 @@ const Reset=()=>{
             <input type="password" value={oldPassword} onChange={(e)=>setOldPassword(e.target.value)}/><br/>
             <label>New Password:</label><br/>
             <input type="password" value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}/><br/>
+            <label>Re enter New Password:</label><br/>
+            <input type="password" value={renewPassword} onChange={(e)=>setreNewPassword(e.target.value)}/><br/>
             <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
         </form>
         </div>
