@@ -19,7 +19,7 @@ const Registration = () => {
 
         try {
             let response=await axios.post(`${BASE_URL}/customer/register`,{
-                name,address,email,city,mobile,pincode,accountType    
+                name,address,email,city,mobile,pincode,accountType,fathername    
                 })
                 toast.success(response.data)
             setTimeout(() => {
