@@ -28,7 +28,11 @@ const user=response.user;
 const userData={name:user.displayName,email:user.email,mobile:user.phoneNumber}
 let api=`${BASE_URL}/customer/googlelogin`;
 let resp=await axios.post(api,{name:user.displayName,email:user.email,mobile:user.phoneNumber});
-console.log(resp.data);
+localStorage.setItem("token",resp.data.token);
+toast.success("Login Successfully with google")
+setTimeout(() => {
+    navigate("/dashboard")
+}, 2000);
     }
 catch(error){
     console.log(error);
@@ -70,7 +74,12 @@ catch(error){
 
 
 
-<button onClick={googleLogin}>Sign in with google</button>
+<button style={{backgroundColor:"#DB4437", color:"white", borderRadius:"5px", padding:"10px", display:"flex", alignItems:"center", justifyContent:"center", gap:"10px"}} onClick={googleLogin}>
+    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" style={{width: "20px", height: "20px"}} />
+    Sign in with Google
+</button>
+
+
  </div>
 
 <ToastContainer/>
