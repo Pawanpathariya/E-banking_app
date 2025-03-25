@@ -344,8 +344,55 @@ const forgotpassword=async(req,res)=>{
 
 //google login 
 const googleLogin=async(req,res)=>{
-  console.log(req.body);
-  res.send("google login");
+try {
+    console.log(req.body);
+   const {name,email,mobile}=req.body;
+   const User=await custoModel.findOne({email:email});
+   if(!User)
+   {
+    
+   const accountNumber= Math.floor(Math.random()*9000000000) + 10000000000;
+ const user=await custoModel.create({name,address:"",email,city:"",mobile,pincode:"",accountType:"Saving",password:"12345678"});
+ const account= await accountModel.create({coustoID:user._id,accountNumber:accountNumber,balance:"0.00"});
+ await custoModel.findByIdAndUpdate(user._id,{$set:{accountID:account._id}});
+  var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'pawanpathariys@gmail.com',
+        pass: 'qsfu fszj qtym hhtc'
+      }
+    });
+    
+    var mailOptions = {
+      from: 'pawanpathariys@gmail.com',
+      to: email,
+      subject: 'Your secret Password', 
+      text: `Welcome to CBI Bank ${name}\nYour Account number is ${accountNumber}\nYour Account is created Successfully\nYour password is ${password} `
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
+    const token = await jwt.sign({id:User._id}, process.env.SECRETE_KEY, { expiresIn: '7 days' })
+   res.status(200).send({token:token});
+
+
+
+   }
+
+   else{
+    const token = await jwt.sign({id:User._id}, process.env.SECRETE_KEY, { expiresIn: '7 days' })
+    res.status(200).send({token:token});
+   }
+} catch (error) {
+    console.log(error);
+}
 }
 
 module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile,balance,deposite,withdraw,transaction,Statement,forgotpassword,googleLogin}

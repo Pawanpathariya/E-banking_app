@@ -27,7 +27,7 @@ const response=await signInWithPopup(auth,provider);
 const user=response.user;
 const userData={name:user.displayName,email:user.email,mobile:user.phoneNumber}
 let api=`${BASE_URL}/customer/googlelogin`;
-let resp=await axios.post(api,{userData});
+let resp=await axios.post(api,{name:user.displayName,email:user.email,mobile:user.phoneNumber});
 console.log(resp.data);
     }
 catch(error){
