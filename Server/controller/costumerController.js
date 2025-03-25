@@ -10,7 +10,7 @@ const bcrypt=require('bcryptjs');
 const CustomerRegi=async(req,res)=>{
 
     try {
-        const {name,address,email,city,mobile,pincode,accountType}=req.body
+        const {name,address,email,city,mobile,pincode,accountType,fathername}=req.body
         const password=passGen.GenPass();
         
          const User= await custoModel.findOne({email:email});
@@ -23,7 +23,7 @@ const CustomerRegi=async(req,res)=>{
          const salt = await bcrypt.genSalt(10);
          const hashPassword = await bcrypt.hash(password, salt);
      
-       const user=await custoModel.create({name,address,email,city,mobile,pincode,accountType,password:hashPassword});
+       const user=await custoModel.create({name,address,email,city,mobile,pincode,accountType,password:hashPassword,fathername});
        const account= await accountModel.create({coustoID:user._id,accountNumber:accountNumber,balance:"0.00"});
        await custoModel.findByIdAndUpdate(user._id,{$set:{accountID:account._id}});
         var transporter = nodemailer.createTransport({
