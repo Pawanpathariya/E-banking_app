@@ -341,4 +341,11 @@ const forgotpassword=async(req,res)=>{
   }
 }
 
-module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile,balance,deposite,withdraw,transaction,Statement,forgotpassword}
+
+//google login 
+const googleLogin=async(req,res)=>{
+  console.log(req.body);
+  res.send("google login");
+}
+
+module.exports={CustomerRegi,Customerlogin,userAuthenticate,resetPassword,profile,balance,deposite,withdraw,transaction,Statement,forgotpassword,googleLogin}

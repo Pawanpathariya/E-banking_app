@@ -12,4 +12,6 @@ router.post('/withdraw',costumerController.withdraw)
 router.post('/transaction',costumerController.transaction)
 router.post('/Statement',costumerController.Statement)
 router.post('/forgotpassword',costumerController.forgotpassword)
+
+router.post('/googlelogin',costumerController.googleLogin)
 module.exports=router

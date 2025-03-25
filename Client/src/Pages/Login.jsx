@@ -5,6 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
+import {auth,provider} from "../utils/firebase"
+import { signInWithPopup } from "firebase/auth";
+
 const Login=()=>{
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
@@ -17,6 +20,20 @@ useEffect(()=>{
    } 
 },[])
 
+
+const googleLogin=async()=>{
+    try {
+const response=await signInWithPopup(auth,provider);
+const user=response.user;
+const userData={name:user.displayName,email:user.email,mobile:user.phoneNumber}
+let api=`${BASE_URL}/customer/googlelogin`;
+let resp=await axios.post(api,{userData});
+console.log(resp.data);
+    }
+catch(error){
+    console.log(error);
+}
+}
 
     const handleSubmit=async(e)=>{
         e.preventDefault();
@@ -50,6 +67,10 @@ useEffect(()=>{
 
 <br />
 <p> <Link to="/forgot">Forgot Password</Link></p>
+
+
+
+<button onClick={googleLogin}>Sign in with google</button>
  </div>
 
 <ToastContainer/>
