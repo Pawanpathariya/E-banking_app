@@ -345,7 +345,6 @@ const forgotpassword=async(req,res)=>{
 //google login 
 const googleLogin=async(req,res)=>{
 try {
-    console.log(req.body);
    const {name,email,mobile}=req.body;
    const User=await custoModel.findOne({email:email});
    if(!User)
@@ -392,6 +391,7 @@ try {
    }
 } catch (error) {
     console.log(error);
+    res.status(500).send("Something went wrong");
 }
 }
 
