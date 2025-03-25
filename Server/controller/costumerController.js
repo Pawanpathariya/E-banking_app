@@ -6,7 +6,6 @@ var nodemailer = require('nodemailer');
 const jwt=require('jsonwebtoken')
 require('dotenv').config();
 const bcrypt=require('bcryptjs');
-
 //Customer Registration
 const CustomerRegi=async(req,res)=>{
 
@@ -14,8 +13,8 @@ const CustomerRegi=async(req,res)=>{
         const {name,address,email,city,mobile,pincode,accountType}=req.body
         const password=passGen.GenPass();
         
-         const User= await custoModel.find({email:email});
-         if (User.length>0)
+         const User= await custoModel.findOne({email:email});
+         if (User)
          {
           return res.status(400).send("Email Already exist!!!");
          }
